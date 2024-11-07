@@ -13,7 +13,12 @@ const BooksList = ({ navigation }) => {
   useEffect(() => {
     const fetchBooks = async () => {
       const querySnapshot = await getDocs(collection(db, 'Books'));
-      const booksList = querySnapshot.docs.map(doc => doc.data());
+      const booksList = querySnapshot.docs.map(doc => ({
+        id: doc.id,  // This will add the document ID
+        ...doc.data() // This will spread the document data into the object
+      }));
+      console.log(booksList);
+      
       setBooks(booksList);
     };
 
