@@ -134,7 +134,6 @@ const BookDetail = ({ route, navigation }) => {
       <Button 
         title={isLoading ? "Processing..." : isBookBorrowed ? "Return this Book" : "Borrow this Book"} 
         onPress={isBookBorrowed ? handleReturn : handleBorrow} 
-        disabled={isLoading || borrowedBooks.length >= 3 && !isBookBorrowed}
         color="#555" 
       />
     </View>
